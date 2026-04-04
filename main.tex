@@ -1,0 +1,369 @@
+%% ============================================================
+%% Currículo — Gildo Rodrigues da Silva Junior
+%% Compilar com: XeLaTeX no Overleaf
+%% Engine: Menu → Compiler → XeLaTeX
+%% ============================================================
+
+\documentclass[10pt, a4paper]{article}
+
+% ── Pacotes ───────────────────────────────────────────────────
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=1.9cm, right=1.9cm]{geometry}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{tcolorbox}
+\usepackage{ragged2e}
+
+\tcbuselibrary{skins}
+
+% ── Fontes (Google Fonts — disponíveis no Overleaf) ───────────
+% DM Serif Display: fonte serif do cabeçalho (igual ao widget)
+% Outfit: fonte sans do corpo (igual ao widget)
+% DM Mono: labels, tags, datas (igual ao widget)
+%
+% Para usar no Overleaf: fazer upload das três famílias de fontes
+% ou ativar "Shell Escape" e baixar via fontes do sistema.
+% Substitutos de fallback abaixo caso as fontes não estejam disponíveis.
+
+\IfFontExistsTF{DM Serif Display}{
+  \newfontfamily\serifDisplay{DM Serif Display}[
+    ItalicFont = {DM Serif Display Italic},
+  ]
+}{
+  \newfontfamily\serifDisplay{Lora}[
+    UprightFont    = Lora-Variable.ttf,
+    ItalicFont     = Lora-Italic-Variable.ttf,
+    BoldFont       = Lora-Variable.ttf,
+    BoldItalicFont = Lora-Italic-Variable.ttf,
+    Path = /usr/share/fonts/truetype/google-fonts/,
+  ]
+}
+
+\IfFontExistsTF{Outfit}{
+  \setmainfont{Outfit}[
+    UprightFont    = {Outfit Light},
+    BoldFont       = {Outfit Medium},
+    FontFace       = {m}{n}{Outfit Medium},
+  ]
+  \newfontfamily\sansFont{Outfit}[
+    UprightFont    = {Outfit},
+    BoldFont       = {Outfit Medium},
+    FontFace       = {m}{n}{Outfit Medium},
+  ]
+}{
+  \setmainfont{Poppins}[
+    UprightFont    = *-Light,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-LightItalic,
+    FontFace       = {m}{n}{*-Medium},
+    Path = /usr/share/fonts/truetype/google-fonts/,
+  ]
+  \newfontfamily\sansFont{Poppins}[
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    FontFace       = {m}{n}{*-Medium},
+    Path = /usr/share/fonts/truetype/google-fonts/,
+  ]
+}
+
+\IfFontExistsTF{DM Mono}{
+  \newfontfamily\monoFont{DM Mono}[
+    UprightFont = {DM Mono Regular},
+    BoldFont    = {DM Mono Medium},
+  ]
+}{
+  \newfontfamily\monoFont{TeX Gyre Cursor}[
+    UprightFont = *-Regular,
+    BoldFont    = *-Bold,
+  ]
+}
+
+% ── Cores ─────────────────────────────────────────────────────
+\definecolor{cvgreen}    {HTML}{1D9E75}
+\definecolor{cvgreenlt}  {HTML}{E1F5EE}
+\definecolor{cvgreenmid} {HTML}{0F6E56}
+\definecolor{cvgreendark}{HTML}{085041}
+\definecolor{cvgray}     {HTML}{5F5E5A}
+\definecolor{cvgraybg}   {HTML}{F1EFE8}
+\definecolor{cvgraybdr}  {HTML}{D3D1C7}
+\definecolor{cvdark}     {HTML}{2C2C2A}
+\definecolor{cvmuted}    {HTML}{888780}
+
+% ── Hyperlinks ────────────────────────────────────────────────
+\hypersetup{colorlinks=true, urlcolor=cvgreen, linkcolor=cvgreen, pdfborder={0 0 0}}
+
+% ── Layout ────────────────────────────────────────────────────
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Seções ────────────────────────────────────────────────────
+% Linha verde fina abaixo, texto em mono uppercase verde
+\titleformat{\section}{%
+  \monoFont\fontsize{7.5}{9}\selectfont\bfseries\color{cvgreen}%
+  \addfontfeatures{LetterSpace=14}%
+}{}{0em}{\MakeUppercase}[{\color{cvgreen}\vspace{2pt}\hrule height 0.7pt}]
+\titlespacing*{\section}{0pt}{13pt}{5pt}
+
+% ── Bullets ──────────────────────────────────────────────────
+\newlist{cvitems}{itemize}{1}
+\setlist[cvitems]{
+  label={\color{cvgreen}\small$\triangleright$},
+  leftmargin=1.25em,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt,
+  labelsep=0.35em,
+}
+
+% ── Sub-label (BACKEND / FRONTEND) ───────────────────────────
+\newcommand{\sublabel}[1]{%
+  \vspace{4pt}%
+  {\monoFont\fontsize{7}{8.5}\selectfont\color{cvgreenmid}%
+   \addfontfeatures{LetterSpace=9}\MakeUppercase{#1}}%
+  \vspace{1pt}\par%
+}
+
+% ── Pill tag ─────────────────────────────────────────────────
+\newcommand{\cvtag}[1]{%
+  \tcbox[
+    on line, arc=2.5pt,
+    colback=cvgreenlt, colframe=cvgreen!35,
+    boxrule=0.4pt, boxsep=0pt,
+    left=3.5pt, right=3.5pt, top=1.5pt, bottom=1.5pt,
+    fontupper={\monoFont\fontsize{6.5}{8}\selectfont\color{cvgreenmid}},
+  ]{#1}%
+}
+
+% ── Skill box ─────────────────────────────────────────────────
+\newcommand{\skillbox}[2]{%
+  \begin{tcolorbox}[
+    colback=cvgraybg, colframe=cvgraybdr,
+    boxrule=0.5pt, arc=3pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt,
+    fontupper={\sansFont},
+  ]
+  {\monoFont\fontsize{6.5}{8}\selectfont\color{cvmuted}%
+   \addfontfeatures{LetterSpace=9}\MakeUppercase{#1}}%
+  \vspace{3pt}\par
+  {\fontsize{8.5}{13}\selectfont\color{cvgreendark}#2}
+  \end{tcolorbox}%
+}
+
+% ── Entrada de experiência ────────────────────────────────────
+\newcommand{\expentry}[4]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    {\sansFont\fontsize{11}{13}\selectfont\fontseries{m}\selectfont\color{cvdark}#1}
+    & {\monoFont\fontsize{7.5}{9}\selectfont\color{cvmuted}#3} \\[-2pt]
+    {\sansFont\fontsize{9}{11}\selectfont\fontseries{m}\selectfont\color{cvgreen}#2}
+    & {\sansFont\fontsize{8}{10}\selectfont\color{cvmuted}#4} \\
+  \end{tabularx}%
+  \vspace{2pt}%
+}
+
+% ── Edu box ───────────────────────────────────────────────────
+\newenvironment{edubox}{%
+  \begin{tcolorbox}[
+    colback=cvgraybg, colframe=cvgraybdr,
+    boxrule=0.5pt, arc=3pt,
+    left=7pt, right=7pt, top=5pt, bottom=5pt,
+  ]%
+}{%
+  \end{tcolorbox}%
+}
+
+% ── Projeto ───────────────────────────────────────────────────
+\newcommand{\projentry}[3]{%
+  \vspace{2pt}%
+  {\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}#1}%
+  \quad{\monoFont\fontsize{7}{9}\selectfont\color{cvgreen}#2}\par
+  \vspace{1pt}%
+  {\fontsize{8.5}{12}\selectfont\color{cvgray}#3}\par
+  \vspace{3pt}%
+}
+
+% ═════════════════════════════════════════════════════════════
+\begin{document}
+% ═════════════════════════════════════════════════════════════
+
+% ── CABEÇALHO ────────────────────────────────────────────────
+\begin{center}
+{\serifDisplay\fontsize{34}{38}\selectfont\color{cvdark}%
+  Gildo \textit{\color{cvgreen}Rodrigues} da Silva Junior%
+}\par\vspace{6pt}
+
+{\monoFont\fontsize{8.5}{10}\selectfont\color{cvgray}%
+  Divinópolis, MG\enspace·\enspace
+  +55 (61) 99111-4351\enspace·\enspace
+  \href{mailto:gildorsj@gmail.com}{gildorsj@gmail.com}\enspace·\enspace
+  \href{https://linkedin.com/in/gildorsj}{linkedin.com/in/gildorsj}%
+}\par\vspace{8pt}
+
+\tcbox[
+  on line, arc=3pt,
+  colback=cvgreenlt, colframe=cvgreen!50,
+  boxrule=0.5pt, boxsep=0pt,
+  left=9pt, right=9pt, top=3.5pt, bottom=3.5pt,
+  fontupper={\monoFont\fontsize{7.5}{9}\selectfont\bfseries\color{cvgreenmid}%
+             \addfontfeatures{LetterSpace=8}},
+]{\MakeUppercase{Full Stack Pleno · .NET · React · React Native}}\par
+\end{center}
+
+\vspace{3pt}
+{\color{cvgreen}\hrule height 1.5pt}
+\vspace{6pt}
+
+% ── PERFIL ───────────────────────────────────────────────────
+\section{Perfil Profissional}
+
+{\fontsize{9.5}{16}\selectfont\color{cvgray}%
+Desenvolvedor Full Stack Pleno com
+{\fontseries{m}\selectfont\color{cvdark}mais de 5 anos de experiência}
+projetando e entregando sistemas corporativos de alta complexidade com
+{\fontseries{m}\selectfont\color{cvdark}.NET, React e React Native}
+— da arquitetura ao deploy. Domínio profundo de
+{\fontseries{m}\selectfont\color{cvdark}Clean Architecture, DDD e microsserviços},
+com histórico de liderar modernizações de legado, resolver gargalos de performance
+e elevar o padrão de engenharia de times.%
+}\par
+
+% ── STACK TÉCNICA ────────────────────────────────────────────
+\section{Stack Técnica}
+
+\begin{tabularx}{\linewidth}{@{}XXX@{}}
+\skillbox{Backend}{C\# · ASP.NET Core · REST APIs\\EF Core · MediatR · RabbitMQ\\ MassTransit · FluentValidation\\Serilog · Polly · Redis · xUnit + Moq}
+&
+\skillbox{Frontend \& Mobile}{React · React Native · TypeScript\\JavaScript · Vite · Design System\\ \\}
+&
+\skillbox{Arquitetura \& QA}{Clean Architecture · SOLID · DDD\\CQRS · Git Flow · TDD · Postman\\ \\}
+\end{tabularx}
+
+\vspace{5pt}
+
+\begin{tabularx}{\linewidth}{@{}XXX@{}}
+\skillbox{Banco de Dados}{SQL Server · MySQL · PostgreSQL\\MongoDB · Modelagem ·  Relacional · Otimização de Queries}
+&
+\skillbox{DevOps \& Cloud}{AWS · Azure · Logic Apps · Power BI Embedde · Firebase\\}
+&
+\skillbox{Idiomas}{Português (nativo)\\Inglês (avançado)\\}
+\end{tabularx}
+
+% ── EXPERIÊNCIA ──────────────────────────────────────────────
+\section{Experiência Profissional}
+
+%% Vision Engenharia ──────────────────────────────────────────
+\expentry{Desenvolvedor Full Stack}{Vision Engenharia}{08/2024 — atual}{Nova Lima, MG}
+
+{\fontsize{8.5}{12}\selectfont\color{cvmuted}%
+Desenvolvimento e evolução do SGI (Sistema Gerencial Integrado) — plataforma corporativa modular
+para gestão empresarial.%
+}\par\vspace{2pt}
+
+\sublabel{Backend · .NET / C\#}
+\begin{cvitems}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Refatoração de código legado aplicando Clean Architecture, DDD e SOLID, reduzindo acoplamento e aumentando manutenibilidade}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Desenvolvimento de APIs REST com Entity Framework Core, modelagem relacional avançada e migrations}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Implementação de regras de negócio complexas: controle de estados, permissões e validações condicionais}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Importação de grandes volumes de dados via Excel/CSV com validação transacional, rollback e tratamento de erros}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Otimização de queries e criação de índices no SQL Server para grandes datasets}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Integração com Power BI Embedded, ERPs e serviços externos}
+\end{cvitems}
+
+\sublabel{Frontend · React + TypeScript}
+\begin{cvitems}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Interfaces dinâmicas com filtros avançados, paginação e dialogs complexos}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Biblioteca de componentes reutilizáveis com arquitetura mobile-first (Vite + TypeScript)}
+\end{cvitems}
+
+\vspace{4pt}
+\cvtag{.NET 8}\enspace\cvtag{React}\enspace\cvtag{TypeScript}\enspace\cvtag{EF Core}\enspace\cvtag{SQL Server}\enspace\cvtag{Power BI Embedded}\enspace\cvtag{Azure}
+
+\vspace{9pt}
+
+%% LocX ────────────────────────────────────────────────────────
+\expentry{Desenvolvedor Full Stack}{LocX}{11/2021 — 08/2024}{Divinópolis, MG}
+
+{\fontsize{8.5}{12}\selectfont\color{cvmuted}%
+Atuação completa (backend, frontend web e mobile) em sistema de gestão de contratos.%
+}\par\vspace{2pt}
+
+\sublabel{Backend · .NET / C\#}
+\begin{cvitems}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}APIs REST com arquitetura em camadas (Application, Domain, Infrastructure) e DDD}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Testes unitários e de integração com alto grau de cobertura}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Análise estática com quality gates e revisão via Git Flow}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Aplicação rigorosa de SOLID e Clean Code}
+\end{cvitems}
+
+\sublabel{Frontend \& Mobile · React + React Native}
+\begin{cvitems}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Interfaces modernas e responsivas com organização modular de componentes}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Aplicativo corporativo multiplataforma (Android/iOS) com integração segura ao backend}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}MySQL: modelagem, migrations e otimização de queries}
+\end{cvitems}
+
+\vspace{4pt}
+\cvtag{.NET 6}\enspace
+\cvtag{React Native}\enspace\cvtag{React}\enspace\cvtag{DDD}\enspace\cvtag{xUnit}\enspace\cvtag{Moq}\enspace\cvtag{MySQL}\enspace\cvtag{Git Flow}
+
+\vspace{9pt}
+
+%% Espaço Virtual ─────────────────────────────────────────────
+\expentry{Desenvolvedor Mobile}{Espaço Virtual}{12/2019 — 04/2021}{Brasília, DF}
+
+\begin{cvitems}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}App de streaming multiplataforma (Android, iOS e Web) com React Native, Node.js e Firebase}
+  \item {\fontsize{9}{13.5}\selectfont\color{cvgray}Autenticação, consumo de APIs e manutenção evolutiva contínua}
+\end{cvitems}
+
+\vspace{4pt}
+\cvtag{React Native}\enspace\cvtag{Node.js}\enspace\cvtag{Firebase}
+
+% ── FORMAÇÃO ─────────────────────────────────────────────────
+\section{Formação Acadêmica}
+
+\begin{tabularx}{\linewidth}{@{}XX@{}}
+
+\begin{edubox}
+{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}%
+ Bacharelado em Engenharia da Computação}\par
+\vspace{2pt}{\fontsize{8.5}{11}\selectfont\color{cvgray}UEMG — Divinópolis, MG}\par
+\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvgreen}2023 — previsão 08/2027}
+\end{edubox}
+
+&
+
+\begin{edubox}
+{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}%
+ Engenharia Mecatrônica (7º sem.\ concluído)}\par
+\vspace{2pt}{\fontsize{8.5}{11}\selectfont\color{cvgray}Universidade de Brasília (UnB)}\par
+\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvgreen}2014 — 2019 · Transição para dev}
+\end{edubox}
+
+\end{tabularx}
+
+\vspace{5pt}
+
+\begin{edubox}
+{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}%
+ Técnico em Informática}\par
+\vspace{2pt}{\fontsize{8.5}{11}\selectfont\color{cvgray}CEFET-MG — Divinópolis, MG}\par
+\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvgreen}2010 — 2013}
+\end{edubox}
+
+% ── PROJETOS ─────────────────────────────────────────────────
+\section{Projetos Acadêmicos \& Pesquisa}
+
+\projentry{UnBeatables — Futebol de Robôs Humanoides}{LARA / UnB · 2017–2019}{Equipe competitiva em visão computacional e comunicação wireless entre robôs humanoides.}
+
+\projentry{Segmentação e Detecção de Texto em Imagens}{LISA / UnB · 2014–2015}{Algoritmo em C++ com OpenCV para detecção e segmentação de texto em imagens digitais.}
+
+\projentry{Jogo 3D Educacional de Química}{UFSJ · 2012–2013}{Desenvolvimento de jogo 3D para ensino de Química com Unreal Engine.}
+
+\end{document}

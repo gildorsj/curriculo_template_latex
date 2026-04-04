@@ -27,13 +27,13 @@ As fontes abaixo devem estar instaladas no sistema para que o documento seja com
 ### Compilação direta
 
 ```bash
-xelatex cv.tex
+xelatex main.tex
 ```
 
 ### Com latexmk (recomendado)
 
 ```bash
-latexmk -xelatex cv.tex
+latexmk -xelatex main.tex
 ```
 
 Para limpar os arquivos auxiliares gerados:
@@ -46,8 +46,8 @@ latexmk -c
 
 ```
 cv_latex/
-├── cv.tex          # Arquivo principal do currículo
-├── cv.pdf          # PDF gerado (não versionado)
+├── main.tex          # Arquivo principal do currículo
+├── main.pdf          # PDF gerado (não versionado)
 └── README.md
 ```
 
