@@ -80,3 +80,6 @@ _minted*
 
 # Saída compilada (descomente se quiser ignorar o PDF final)
 # *.pdf
+
+# IDE
+.idea/
