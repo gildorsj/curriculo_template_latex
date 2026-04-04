@@ -22,6 +22,29 @@ As fontes abaixo devem estar instaladas no sistema para que o documento seja com
 
 > **Dica (Linux/macOS):** Baixe os arquivos `.ttf` ou `.otf` e copie para `~/.fonts/` (Linux) ou `~/Library/Fonts/` (macOS). Execute `fc-cache -fv` para atualizar o cache de fontes.
 
+## Tema de cores
+
+O currículo possui dois esquemas de cores prontos para uso:
+
+| Tema | Variável base | Prévia |
+|------|---------------|--------|
+| Azul (padrão) | `cvblue` | Azul petróleo `#1D6E9E` |
+| Verde | `cvgreen` | Verde esmeralda `#1D9E75` |
+
+Para **trocar o tema**, faça um _find & replace_ em `main.tex` com as substituições abaixo:
+
+**Azul → Verde:**
+| Encontrar | Substituir por |
+|-----------|----------------|
+| `cvblue`     | `cvgreen`     |
+| `cvbluelt`   | `cvgreenlt`   |
+| `cvbluemid`  | `cvgreenmid`  |
+| `cvbluedark` | `cvgreendark` |
+
+**Verde → Azul:** faça o inverso da tabela acima.
+
+> **Dica:** No VS Code use `Ctrl+H` → marque _Match Case_ e _Match Whole Word_ para evitar substituições parciais indesejadas. No Overleaf use o menu _Find & Replace_ (`Ctrl+H`).
+
 ## Como compilar
 
 ### Compilação direta
