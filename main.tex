@@ -78,10 +78,10 @@
 }
 
 % ── Cores ─────────────────────────────────────────────────────
-% TEMA: dois esquemas disponíveis — cvblue (padrão) ou cvgreen
+% TEMA: dois esquemas disponíveis — cvgreen (padrão) ou cvblue
 % Para trocar, faça find & replace no arquivo:
-%   cvblue  → cvgreen   (e variantes: cvbluelt→cvgreenlt, cvbluemid→cvgreenmid, cvbluedark→cvgreendark)
-%   cvgreen → cvblue    (para reverter)
+%   cvgreen → cvblue    (e variantes: cvbluelt→cvgreenlt, cvbluemid→cvgreenmid, cvbluedark→cvgreendark)
+%   cvblue  → cvgreen   (para reverter)
 \definecolor{cvgreen}    {HTML}{1D9E75}
 \definecolor{cvgreenlt}  {HTML}{E1F5EE}
 \definecolor{cvgreenmid} {HTML}{0F6E56}
@@ -97,7 +97,7 @@
 \definecolor{cvmuted}    {HTML}{888780}
 
 % ── Hyperlinks ────────────────────────────────────────────────
-\hypersetup{colorlinks=true, urlcolor=cvblue, linkcolor=cvblue, pdfborder={0 0 0}}
+\hypersetup{colorlinks=true, urlcolor=cvgreen, linkcolor=cvgreen, pdfborder={0 0 0}}
 
 % ── Layout ────────────────────────────────────────────────────
 \pagestyle{empty}
@@ -106,15 +106,15 @@
 
 % ── Seções ────────────────────────────────────────────────────
 \titleformat{\section}{%
-	\monoFont\fontsize{7.5}{9}\selectfont\bfseries\color{cvblue}%
+	\monoFont\fontsize{7.5}{9}\selectfont\bfseries\color{cvgreen}%
 	\addfontfeatures{LetterSpace=14}%
-}{}{0em}{\MakeUppercase}[{\color{cvblue}\vspace{2pt}\hrule height 0.7pt}]
+}{}{0em}{\MakeUppercase}[{\color{cvgreen}\vspace{2pt}\hrule height 0.7pt}]
 \titlespacing*{\section}{0pt}{13pt}{5pt}
 
 % ── Bullets ──────────────────────────────────────────────────
 \newlist{cvitems}{itemize}{1}
 \setlist[cvitems]{
-	label={\color{cvblue}\small$\triangleright$},
+	label={\color{cvgreen}\small$\triangleright$},
 	leftmargin=1.25em,
 	itemsep=1pt,
 	topsep=2pt,
@@ -125,7 +125,7 @@
 % ── Sub-label (BACKEND / FRONTEND) ───────────────────────────
 \newcommand{\sublabel}[1]{%
 	\vspace{4pt}%
-	{\monoFont\fontsize{7}{8.5}\selectfont\color{cvbluemid}%
+	{\monoFont\fontsize{7}{8.5}\selectfont\color{cvgreenmid}%
 		\addfontfeatures{LetterSpace=9}\MakeUppercase{#1}}%
 	\vspace{1pt}\par%
 }
@@ -134,10 +134,10 @@
 \newcommand{\cvtag}[1]{%
 	\tcbox[
 	on line, arc=2.5pt,
-	colback=cvbluelt, colframe=cvblue!35,
+	colback=cvgreenlt, colframe=cvgreen!35,
 	boxrule=0.4pt, boxsep=0pt,
 	left=3.5pt, right=3.5pt, top=1.5pt, bottom=1.5pt,
-	fontupper={\monoFont\fontsize{6.5}{8}\selectfont\color{cvbluemid}},
+	fontupper={\monoFont\fontsize{6.5}{8}\selectfont\color{cvgreenmid}},
 	]{#1}%
 }
 
@@ -152,7 +152,7 @@
 		{\monoFont\fontsize{6.5}{8}\selectfont\color{cvmuted}%
 			\addfontfeatures{LetterSpace=9}\MakeUppercase{#1}}%
 		\vspace{3pt}\par
-		{\fontsize{8.5}{13}\selectfont\color{cvbluedark}#2}
+		{\fontsize{8.5}{13}\selectfont\color{cvgreendark}#2}
 	\end{tcolorbox}%
 }
 
@@ -161,7 +161,7 @@
 	\begin{tabularx}{\linewidth}{@{}X r@{}}
 		{\sansFont\fontsize{11}{13}\selectfont\fontseries{m}\selectfont\color{cvdark}#1}
 		& {\monoFont\fontsize{7.5}{9}\selectfont\color{cvmuted}#3} \\[-2pt]
-		{\sansFont\fontsize{9}{11}\selectfont\fontseries{m}\selectfont\color{cvblue}#2}
+		{\sansFont\fontsize{9}{11}\selectfont\fontseries{m}\selectfont\color{cvgreen}#2}
 		& {\sansFont\fontsize{8}{10}\selectfont\color{cvmuted}#4} \\
 	\end{tabularx}%
 	\vspace{2pt}%
@@ -182,7 +182,7 @@
 \newcommand{\projentry}[3]{%
 	\vspace{2pt}%
 	{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}#1}%
-	\quad{\monoFont\fontsize{7}{9}\selectfont\color{cvblue}#2}\par
+	\quad{\monoFont\fontsize{7}{9}\selectfont\color{cvgreen}#2}\par
 	\vspace{1pt}%
 	{\fontsize{8.5}{12}\selectfont\color{cvgray}#3}\par
 	\vspace{3pt}%
@@ -195,7 +195,7 @@
 	% ── CABEÇALHO ────────────────────────────────────────────────
 	\begin{center}
 		{\serifDisplay\fontsize{34}{38}\selectfont\color{cvdark}%
-			Gildo \textit{\color{cvblue}Rodrigues} da Silva Junior%
+			Gildo \textit{\color{cvgreen}Rodrigues} da Silva Junior%
 		}\par\vspace{6pt}
 		
 		{\monoFont\fontsize{8.5}{10}\selectfont\color{cvgray}%
@@ -207,16 +207,16 @@
 		
 		\tcbox[
 		on line, arc=3pt,
-		colback=cvbluelt, colframe=cvblue!50,
+		colback=cvgreenlt, colframe=cvgreen!50,
 		boxrule=0.5pt, boxsep=0pt,
 		left=9pt, right=9pt, top=3.5pt, bottom=3.5pt,
-		fontupper={\monoFont\fontsize{7.5}{9}\selectfont\bfseries\color{cvbluemid}%
+		fontupper={\monoFont\fontsize{7.5}{9}\selectfont\bfseries\color{cvgreenmid}%
 			\addfontfeatures{LetterSpace=8}},
 		]{\MakeUppercase{Full Stack Pleno · .NET · React · React Native}}\par
 	\end{center}
 	
 	\vspace{3pt}
-	{\color{cvblue}\hrule height 1.5pt}
+	{\color{cvgreen}\hrule height 1.5pt}
 	\vspace{6pt}
 	
 	% ── PERFIL ───────────────────────────────────────────────────
@@ -247,9 +247,9 @@
 	\vspace{5pt}
 	
 	\begin{tabularx}{\linewidth}{@{}XXX@{}}
-		\skillbox{Banco de Dados}{SQL Server · MySQL · PostgreSQL\\MongoDB · Modelagem Relacional\\ Otimização de Queries}
+		\skillbox{Banco de Dados}{SQL Server · MySQL · PostgreSQL\\MongoDB · Modelagem Relacional\\Otimização de Queries}
 		&
-		\skillbox{DevOps \& Cloud}{AWS · Azure · Logic Apps\\Power BI Embedded · Firebase\\CI/CD}
+		\skillbox{DevOps \& Cloud}{CI/CD · AWS · Azure · Github Actions\\Logic Apps · Power BI Embedded\\Firebase}
 		&
 		\skillbox{Idiomas}{Português (nativo)\\Inglês (avançado)\\}
 	\end{tabularx}
@@ -334,7 +334,7 @@
 			{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}%
 				Bacharelado em Engenharia da Computação}\par
 			\vspace{2pt}{\fontsize{8.5}{11}\selectfont\color{cvgray}UEMG — Divinópolis, MG}\par
-			\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvblue}2023 — previsão 08/2027}
+			\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvgreen}2023 — previsão 08/2027}
 		\end{edubox}
 		
 		&
@@ -343,7 +343,7 @@
 			{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}%
 				Engenharia Mecatrônica (7º sem.\ concluído)}\par
 			\vspace{2pt}{\fontsize{8.5}{11}\selectfont\color{cvgray}Universidade de Brasília (UnB)}\par
-			\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvblue}2014 — 2019 · Transição de carreira}
+			\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvgreen}2014 — 2019 · Transição de carreira}
 		\end{edubox}
 		
 	\end{tabularx}
@@ -354,7 +354,7 @@
 		{\sansFont\fontsize{9.5}{12}\selectfont\fontseries{m}\selectfont\color{cvdark}%
 			Técnico em Informática}\par
 		\vspace{2pt}{\fontsize{8.5}{11}\selectfont\color{cvgray}CEFET-MG — Divinópolis, MG}\par
-		\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvblue}2010 — 2013}
+		\vspace{2pt}{\monoFont\fontsize{8}{10}\selectfont\color{cvgreen}2010 — 2013}
 	\end{edubox}
 	
 	% ── PROJETOS ─────────────────────────────────────────────────
