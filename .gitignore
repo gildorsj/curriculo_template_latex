@@ -1,0 +1,82 @@
+﻿# Arquivos auxiliares do LaTeX
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+
+# Arquivos intermediários
+*.dvi
+*.xdv
+*.ps
+*.eps_tex
+
+# Bibliografias
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Índices
+*.idx
+*.ilg
+*.ind
+*.ist
+
+# Glossários
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+
+# Nomenclatura
+*.nlo
+*.nls
+
+# Arquivos gerados pelo latexmk
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# Listagens
+*.lol
+
+# Minted (syntax highlighting)
+_minted*
+*.pyg
+
+# Endfloat
+*.ttt
+*.fff
+
+# TikZ / PGF
+*.dpth
+*.md5
+*.auxlock
+
+# Todonotes
+*.tdo
+
+# Saída compilada (descomente se quiser ignorar o PDF final)
+# *.pdf
