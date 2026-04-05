@@ -2,6 +2,12 @@
 
 Template de currículo (CV) escrito em LaTeX, compilado com **XeLaTeX**.
 
+## Prévia
+
+![Prévia do Currículo Pagina 1](preview-1.png)
+
+![Prévia do Currículo Pagina 2](preview-2.png)
+
 ## Requisitos
 
 - Distribuição LaTeX:
