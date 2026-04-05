@@ -1,4 +1,4 @@
-# cv_latex
+# curriculo_template_latex
 
 Template de currículo (CV) escrito em LaTeX, compilado com **XeLaTeX**.
 
