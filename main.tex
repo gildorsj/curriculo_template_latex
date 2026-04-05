@@ -237,7 +237,7 @@
 	\section{Stack Técnica}
 	
 	\begin{tabularx}{\linewidth}{@{}XXX@{}}
-		\skillbox{Backend}{C\# · ASP.NET Core · REST APIs\\EF Core · MediatR · RabbitMQ\\ MassTransit · FluentValidation\\Serilog · Polly · Redis · xUnit + Moq}
+		\skillbox{Backend}{C\# · ASP.NET Core · REST APIs\\EF Core · Dapper · MediatR\\RabbitMQ · FluentValidation\\AutoMapper · Serilog · xUnit + Moq}
 		&
 		\skillbox{Frontend \& Mobile}{React · React Native · TypeScript\\JavaScript · Vite · Zustand\\ React Hook Form · Zod · Radix UI\\Tailwind CSS · Shadcn/UI}
 		&
@@ -247,9 +247,9 @@
 	\vspace{5pt}
 	
 	\begin{tabularx}{\linewidth}{@{}XXX@{}}
-		\skillbox{Banco de Dados}{SQL Server · MySQL · PostgreSQL\\MongoDB · Modelagem Relacional\\Otimização de Queries}
+		\skillbox{Banco de Dados}{SQL Server · MySQL · PostgreSQL\\DynamoDB · Modelagem Relacional\\Otimização de Queries}
 		&
-		\skillbox{DevOps \& Cloud}{CI/CD · AWS · Azure · Github Actions\\Logic Apps · Power BI Embedded\\Firebase}
+		\skillbox{DevOps \& Cloud}{Docker · Terraform · GitHub Actions\\AWS · Azure · CI/CD · SonarCloud\\Power BI Embedded · Firebase}
 		&
 		\skillbox{Idiomas}{Português (nativo)\\Inglês (avançado)\\}
 	\end{tabularx}
@@ -284,7 +284,7 @@
 	\end{cvitems}
 	
 	\vspace{4pt}
-	\cvtag{.NET 8}\enspace\cvtag{React 18}\enspace\cvtag{TypeScript}\enspace\cvtag{EF Core}\enspace\cvtag{SQL Server}\enspace\cvtag{Tailwind CSS}\enspace\cvtag{Radix UI}\enspace\cvtag{React Hook Form}\enspace\cvtag{Zod}\enspace\cvtag{Power BI Embedded}\enspace\cvtag{Azure}
+	\cvtag{.NET 8}\enspace\cvtag{React 18}\enspace\cvtag{TypeScript}\enspace\cvtag{EF Core}\enspace\cvtag{SQL Server}\enspace\cvtag{Tailwind CSS}\enspace\cvtag{Radix UI}\enspace\cvtag{React Hook Form}\enspace\cvtag{Zod}\\\enspace\cvtag{Power BI Embedded}\enspace\cvtag{Azure}
 	
 	\vspace{9pt}
 	
@@ -297,10 +297,12 @@
 	
 	\sublabel{Backend · .NET / C\#}
 	\begin{cvitems}
-		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Desenvolvimento de APIs REST usando arquitetura em camadas (Application/Domain/Infrastructure) com DDD}
-		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Implementação de testes unitários e de integração com xUnit e Moq, garantindo alta cobertura}
-		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Configuração de quality gates e revisão contínua de PRs utilizando Git Flow}
-		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Aplicação rigorosa de SOLID e Clean Code}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Desenvolvimento de APIs REST com Clean Architecture, DDD e CQRS via MediatR, AutoMapper e FluentValidation}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Modelagem e persistência com EF Core 6 (code-first, migrations) e Dapper para queries complexas; MySQL 8 via Pomelo e AWS DynamoDB}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Infraestrutura AWS: S3, RDS, EC2, Elastic Beanstalk, Secrets Manager, SES e CloudWatch}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Mensageria assíncrona com RabbitMQ; observabilidade com Serilog + OpenSearch/Kibana e cobertura via Coverlet}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Containerização com Docker, IaC com Terraform e CI/CD via GitHub Actions com análise estática no SonarCloud}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Testes unitários e de integração com xUnit, Moq, FluentAssertions e Microsoft.AspNetCore.Mvc.Testing}
 	\end{cvitems}
 	
 	\sublabel{Frontend \& Mobile · React + React Native}
@@ -311,8 +313,7 @@
 	\end{cvitems}
 	
 	\vspace{4pt}
-	\cvtag{.NET 6}\enspace
-	\cvtag{React Native}\enspace\cvtag{React}\enspace\cvtag{DDD}\enspace\cvtag{xUnit}\enspace\cvtag{Moq}\enspace\cvtag{MySQL}\enspace\cvtag{Git Flow}
+	\cvtag{.NET 6}\enspace\cvtag{EF Core}\enspace\cvtag{Dapper}\enspace\cvtag{MySQL}\enspace\cvtag{DynamoDB}\enspace\cvtag{RabbitMQ}\enspace\cvtag{AWS}\enspace\cvtag{Docker}\enspace\cvtag{Terraform}\enspace\cvtag{GitHub Actions}\enspace\cvtag{CQRS}\enspace\\\cvtag{xUnit}\enspace\cvtag{React Native}\enspace\cvtag{React}
 	
 	\vspace{9pt}
 	
@@ -320,12 +321,21 @@
 	\expentry{Desenvolvedor Mobile}{Espaço Virtual}{12/2019 — 04/2021}{Brasília, DF}
 	
 	\begin{cvitems}
-		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Desenvolveu aplicativo de streaming multiplataforma (Android, iOS e Web) com React Native, Node.js e Firebase}
-		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Implementou autenticação social, consumo de APIs RESTful e ciclo contínuo de manutenção evolutiva}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Desenvolimento end-to-end de aplicativo React Native para streaming de vídeo, integrado à API do Vimeo e backend em Node.js}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Implementação de autenticação e gestão de usuários com Firebase/Firestore, pagamentos via Google e APIs externas}
+		\item {\fontsize{9}{13.5}\selectfont\color{cvgray}Migração e reescrita de módulos de React Native para React (web), unificando componentes, serviços e lógica compartilhada}
 	\end{cvitems}
 	
 	\vspace{4pt}
-	\cvtag{React Native}\enspace\cvtag{Node.js}\enspace\cvtag{Firebase}
+		\cvtag{React Native}
+		\enspace\cvtag{Node.js}
+		\enspace\cvtag{JavaScript}
+		\enspace\cvtag{Firebase}
+		\enspace\cvtag{Vimeo API}
+		\enspace\cvtag{Google Play Billing}
+		\enspace\cvtag{REST APIs}
+		\enspace\cvtag{Streaming}
+		\enspace\cvtag{Auth}
 	
 	% ── FORMAÇÃO ─────────────────────────────────────────────────
 	\section{Formação Acadêmica}
@@ -362,10 +372,10 @@
 	% ── PROJETOS ─────────────────────────────────────────────────
 	\section{Projetos Acadêmicos \& Pesquisa}
 	
-	\projentry{UnBeatables — Futebol de Robôs Humanoides}{LARA / UnB · 2017–2019}{Integrou equipe competitiva focada em visão computacional e comunicação wireless entre robôs humanoides autônomos.}
+	\projentry{UnBeatables — Futebol de Robôs Humanoides}{LARA / UnB · 2017–2019}{Particição em equipe competitiva focada em visão computacional (OpenCV) e comunicação wireless entre robôs humanoides autônomos.}
 	
-	\projentry{Segmentação e Detecção de Texto em Imagens}{LISA / UnB · 2014–2015}{Desenvolveu algoritmo em C++ com OpenCV para detecção e segmentação automática de texto em imagens digitais.}
+	\projentry{Segmentação e Detecção de Texto em Imagens}{LISA / UnB · 2014–2015}{Desenvolvimento de algoritmo em C++ com OpenCV para detecção e segmentação automática de texto em imagens digitais.}
 	
-	\projentry{Jogo 3D Educacional de Química}{UFSJ · 2012–2013}{Criou jogo 3D para ensino de Química utilizando Unreal Engine, voltado à gamificação educacional.}
+	\projentry{Jogo 3D Educacional de Química}{UFSJ · 2012–2013}{Desenvolvimento de jogo 3D para ensino de Química utilizando Unreal Engine, voltado à gamificação educacional.}
 	
 \end{document}
